@@ -1,0 +1,50 @@
+<svg class="railroad-diagram" height="94" viewBox="0 0 637.5 94" width="637.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(.5 .5)">
+<style>/* <![CDATA[ */
+svg.railroad-diagram {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram path {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram text {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram text.label {
+    text-anchor: start;
+}
+
+svg.railroad-diagram text.comment {
+    font-size: 12px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram rect {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: #eeeeee;
+}
+
+svg.railroad-diagram rect.group-box {
+    stroke: #808080;
+    stroke-dasharray: 10 5;
+    fill: none;
+}
+
+/* ]]> */
+</style><g>
+<path d="M20 45v20m10 -20v20m-10 -10h69.5"></path><text style="text-anchor:start" x="20" y="40">Texture</text></g><path d="M89.5 55h10"></path><g>
+<path d="M99.5 55h0.0"></path><path d="M587.5 55h0.0"></path><rect class="group-box" height="38" rx="10" ry="10" width="488.0" x="99.5" y="36"></rect><g>
+<path d="M99.5 55h10.0"></path><path d="M577.5 55h10.0"></path><g class="non-terminal ">
+<path d="M109.5 55h0.0"></path><path d="M257.0 55h0.0"></path><rect height="22" width="147.5" x="109.5" y="44"></rect><text x="183.25" y="59">byte unknown&#91;8&#93;</text></g><path d="M257.0 55h10"></path><path d="M267.0 55h10"></path><g class="non-terminal ">
+<path d="M277.0 55h0.0"></path><path d="M577.5 55h0.0"></path><rect height="22" width="300.5" x="277.0" y="44"></rect><text x="427.25" y="59">TextureData&#42; (uint32) textureData</text></g></g><g class="non-terminal ">
+<path d="M99.5 28h0.0"></path><path d="M221.5 28h0.0"></path><text class="comment" x="160.5" y="33">byte texture&#91;12&#93;</text></g></g><path d="M587.5 55h10"></path><path d="M 597.5 55 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

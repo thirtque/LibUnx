@@ -140,10 +140,10 @@ namespace unx {
             auto height = readUInt16();
             auto originX = readUInt16();
             auto originY = readUInt16();
+            auto unknown1 = readUInt16(); // ~width
+            auto unknown2 = readUInt16(); // ~height
             auto unknown3 = readUInt16(); // ~width
             auto unknown4 = readUInt16(); // ~height
-            auto unknown5 = readUInt16(); // ~width
-            auto unknown6 = readUInt16(); // ~height
             auto textureIndex = readUInt16();
 
             textureRegions.emplace_back(
@@ -214,18 +214,6 @@ namespace unx {
                 }
                 frames.push_back(frameTextureRegion);
             }
-
-            auto unknown19 = readUInt32();
-            auto unknown20 = readUInt32();
-            auto unknown21 = readUInt32();
-            auto unknown22 = readUInt32();
-            auto unknown23 = readUInt32();
-            auto unknown24 = readUInt32();
-            auto unknown25 = readUInt32();
-            auto unknown26 = readUInt32();
-            auto unknown27 = readUInt32();
-            auto unknown28 = readUInt32();
-            auto unknown29 = readUInt32();
 
             sprites.emplace_back(name, std::move(frames));
         }

@@ -1,0 +1,59 @@
+<svg class="railroad-diagram" height="214" viewBox="0 0 1158.0 214" width="1158.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(.5 .5)">
+<style>/* <![CDATA[ */
+svg.railroad-diagram {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram path {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram text {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram text.label {
+    text-anchor: start;
+}
+
+svg.railroad-diagram text.comment {
+    font-size: 12px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram rect {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: #eeeeee;
+}
+
+svg.railroad-diagram rect.group-box {
+    stroke: #808080;
+    stroke-dasharray: 10 5;
+    fill: none;
+}
+
+/* ]]> */
+</style><g>
+<path d="M20 45v20m10 -20v20m-10 -10h120.5"></path><text style="text-anchor:start" x="20" y="40">TextureRegion</text></g><path d="M140.5 55h10"></path><g>
+<path d="M150.5 55h0.0"></path><path d="M1108.0 175h0.0"></path><rect class="group-box" height="158" rx="10" ry="10" width="957.5" x="150.5" y="36"></rect><g>
+<path d="M150.5 55h10.0"></path><path d="M1098.0 175h10.0"></path><g>
+<path d="M160.5 55h0.0"></path><path d="M160.5 55h10"></path><g class="non-terminal ">
+<path d="M170.5 55h10.0"></path><path d="M319.5 55h10.0"></path><rect height="22" width="139.0" x="180.5" y="44"></rect><text x="250.0" y="59">uint16 offsetX</text></g><path d="M329.5 55a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-159.0a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g class="non-terminal ">
+<path d="M170.5 95h10.0"></path><path d="M319.5 95h10.0"></path><rect height="22" width="139.0" x="180.5" y="84"></rect><text x="250.0" y="99">uint16 offsetY</text></g><path d="M329.5 95h10"></path><path d="M339.5 95h0.0"></path></g><path d="M339.5 95h10"></path><path d="M349.5 95h10"></path><g>
+<path d="M359.5 95h0.0"></path><path d="M359.5 95h10"></path><g class="non-terminal ">
+<path d="M369.5 95h14.25"></path><path d="M505.75 95h14.25"></path><rect height="22" width="122.0" x="383.75" y="84"></rect><text x="444.75" y="99">uint16 width</text></g><path d="M520.0 95a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-150.5a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g class="non-terminal ">
+<path d="M369.5 135h10.0"></path><path d="M510.0 135h10.0"></path><rect height="22" width="130.5" x="379.5" y="124"></rect><text x="444.75" y="139">uint16 height</text></g><path d="M520.0 135h10"></path><path d="M530.0 135h0.0"></path></g><path d="M530.0 135h10"></path><path d="M540.0 135h10"></path><g>
+<path d="M550.0 135h0.0"></path><path d="M550.0 135h10"></path><g class="non-terminal ">
+<path d="M560.0 135h10.0"></path><path d="M709.0 135h10.0"></path><rect height="22" width="139.0" x="570.0" y="124"></rect><text x="639.5" y="139">uint16 originX</text></g><path d="M719.0 135a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-159.0a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g class="non-terminal ">
+<path d="M560.0 175h10.0"></path><path d="M709.0 175h10.0"></path><rect height="22" width="139.0" x="570.0" y="164"></rect><text x="639.5" y="179">uint16 originY</text></g><path d="M719.0 175h10"></path><path d="M729.0 175h0.0"></path></g><path d="M729.0 175h10"></path><path d="M739.0 175h10"></path><g class="non-terminal ">
+<path d="M749.0 175h0.0"></path><path d="M896.5 175h0.0"></path><rect height="22" width="147.5" x="749.0" y="164"></rect><text x="822.75" y="179">byte unknown&#91;8&#93;</text></g><path d="M896.5 175h10"></path><path d="M906.5 175h10"></path><g class="non-terminal ">
+<path d="M916.5 175h0.0"></path><path d="M1098.0 175h0.0"></path><rect height="22" width="181.5" x="916.5" y="164"></rect><text x="1007.25" y="179">uint16 textureIndex</text></g></g><g class="non-terminal ">
+<path d="M150.5 28h0.0"></path><path d="M314.5 28h0.0"></path><text class="comment" x="232.5" y="33">byte textureRegion&#91;22&#93;</text></g></g><path d="M1108.0 175h10"></path><path d="M 1118.0 175 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

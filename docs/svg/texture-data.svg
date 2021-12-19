@@ -1,0 +1,48 @@
+<svg class="railroad-diagram" height="94" viewBox="0 0 697.5 94" width="697.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(.5 .5)">
+<style>/* <![CDATA[ */
+svg.railroad-diagram {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram path {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram text {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram text.label {
+    text-anchor: start;
+}
+
+svg.railroad-diagram text.comment {
+    font-size: 12px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram rect {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: #eeeeee;
+}
+
+svg.railroad-diagram rect.group-box {
+    stroke: #808080;
+    stroke-dasharray: 10 5;
+    fill: none;
+}
+
+/* ]]> */
+</style><g>
+<path d="M20 45v20m10 -20v20m-10 -10h103.5"></path><text style="text-anchor:start" x="20" y="40">TextureData</text></g><path d="M123.5 55h10"></path><g>
+<path d="M133.5 55h0.0"></path><path d="M647.5 55h0.0"></path><rect class="group-box" height="38" rx="10" ry="10" width="514" x="133.5" y="36"></rect><g class="non-terminal ">
+<path d="M133.5 55h234.25"></path><path d="M413.25 55h234.25"></path><rect height="22" width="45.5" x="367.75" y="44"></rect><text x="390.5" y="59">Png</text></g><g class="non-terminal ">
+<path d="M133.5 28h0.0"></path><path d="M647.5 28h0.0"></path><text class="comment" x="390.5" y="33">byte textureData&#91;number of bytes to the next texture/end of the section&#93;</text></g></g><path d="M647.5 55h10"></path><path d="M 657.5 55 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

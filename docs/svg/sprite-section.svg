@@ -1,0 +1,58 @@
+<svg class="railroad-diagram" height="206" viewBox="0 0 766.0 206" width="766.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(.5 .5)">
+<style>/* <![CDATA[ */
+svg.railroad-diagram {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram path {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: rgba(0, 0, 0, 0);
+}
+
+svg.railroad-diagram text {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram text.label {
+    text-anchor: start;
+}
+
+svg.railroad-diagram text.comment {
+    font-size: 12px;
+    font-family: "Fira Code", "Fira Mono", monospace;
+    text-anchor: middle;
+}
+
+svg.railroad-diagram rect {
+    stroke-width: 2;
+    stroke: #000000;
+    fill: #eeeeee;
+}
+
+svg.railroad-diagram rect.group-box {
+    stroke: #808080;
+    stroke-dasharray: 10 5;
+    fill: none;
+}
+
+/* ]]> */
+</style><g>
+<path d="M20 69v20m10 -20v20m-10 -10h120.5"></path><text style="text-anchor:start" x="20" y="64">SpriteSection</text></g><path d="M140.5 79h10"></path><g>
+<path d="M150.5 79h0.0"></path><path d="M716.0 159h0.0"></path><rect class="group-box" height="150" rx="10" ry="10" width="565.5" x="150.5" y="36"></rect><g>
+<path d="M150.5 79h10.0"></path><path d="M706.0 159h10.0"></path><g>
+<path d="M160.5 79h0.0"></path><path d="M334.0 119h0.0"></path><rect class="group-box" height="78" rx="10" ry="10" width="173.5" x="160.5" y="60"></rect><g>
+<path d="M160.5 79h10.0"></path><path d="M170.5 79h10"></path><g class="terminal ">
+<path d="M180.5 79h39.75"></path><path d="M274.25 79h39.75"></path><rect height="22" rx="10" ry="10" width="54.0" x="220.25" y="68"></rect><text x="247.25" y="83">SPRT</text></g><path d="M314.0 79a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-133.5a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g class="non-terminal ">
+<path d="M180.5 119h10.0"></path><path d="M304.0 119h10.0"></path><rect height="22" width="113.5" x="190.5" y="108"></rect><text x="247.25" y="123">uint32 size</text></g><path d="M314.0 119h10"></path><path d="M324.0 119h10.0"></path></g><g class="non-terminal ">
+<path d="M160.5 52h0.0"></path><path d="M254.5 52h0.0"></path><text class="comment" x="207.5" y="57">byte info&#91;8&#93;</text></g></g><path d="M334.0 119h10"></path><path d="M344.0 119h10"></path><g>
+<path d="M354.0 119h0.0"></path><path d="M706.0 159h0.0"></path><rect class="group-box" height="78" rx="10" ry="10" width="352.0" x="354.0" y="100"></rect><g>
+<path d="M354.0 119h10.0"></path><path d="M364.0 119h10"></path><g class="non-terminal ">
+<path d="M374.0 119h90.75"></path><path d="M595.25 119h90.75"></path><rect height="22" width="130.5" x="464.75" y="108"></rect><text x="530.0" y="123">uint32 number</text></g><path d="M686.0 119a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-312.0a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g class="non-terminal ">
+<path d="M374.0 159h10.0"></path><path d="M676.0 159h10.0"></path><rect height="22" width="292.0" x="384.0" y="148"></rect><text x="530.0" y="163">Sprite&#42; (uint32) sprites&#91;number&#93;</text></g><path d="M686.0 159h10"></path><path d="M696.0 159h10.0"></path></g><g class="non-terminal ">
+<path d="M354.0 92h0.0"></path><path d="M504.0 92h0.0"></path><text class="comment" x="429.0" y="97">byte data&#91;info.size&#93;</text></g></g></g><g class="non-terminal ">
+<path d="M150.5 28h0.0"></path><path d="M489.5 28h0.0"></path><text class="comment" x="320.0" y="33">byte spriteSection&#91;8 + spriteSection.info.size&#93;</text></g></g><path d="M716.0 159h10"></path><path d="M 726.0 159 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
