@@ -100,12 +100,17 @@ namespace unx {
 
     struct Sprite {
             String* name;
+            std::uint32_t width;
+            std::uint32_t height;
             std::vector<TextureRegion*> frames;
 
             unknown_map unknowns;
 
-            explicit Sprite(String* name, std::vector<TextureRegion*>&& frames, unknown_map&& unknowns):
+            explicit Sprite(
+                String* name, std::uint32_t width, std::uint32_t height, std::vector<TextureRegion*>&& frames, unknown_map&& unknowns):
                 name(name),
+                width(width),
+                height(height),
                 frames(std::move(frames)),
                 unknowns(std::move(unknowns)) {}
     };

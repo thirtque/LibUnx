@@ -217,13 +217,15 @@ if __name__ == '__main__':
         Start("simple", "Sprite"),
         Group(
             Sequence(
-                Sequence(NonTerminal("String.value* (uint32) name")),
-                NonTerminal("byte unknown[72]"),
-                Group(
-                    OneOrMore(
-                        NonTerminal("TextureRegion* (uint32) frame"),
-                    ),
-                    "byte frames[4 * frameCount]"
+                NonTerminal("String.value* (uint32) name"),
+                Stack(
+                    NonTerminal("uint32 width"),
+                    NonTerminal("uint32 height")
+                ),
+                NonTerminal("byte unknown[64]"),
+                Stack(
+                    NonTerminal("uint32 frameCount"),
+                    NonTerminal("TextureRegion* (uint32) frames[frameCount]")
                 ),
                 NonTerminal("byte unknown[?]"),
             ),

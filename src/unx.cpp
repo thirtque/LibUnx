@@ -199,9 +199,12 @@ namespace unx {
                 throw std::runtime_error("Unable to find string for sprite name");
             }
 
-            // Skip 72 bytes of unknown data
+            auto width = readUInt32();
+            auto height = readUInt32();
+
+            // Skip 64 bytes of unknown data
             auto unknownOffset = getPosition() - position;
-            unknowns[unknownOffset] = std::move(readBytes(72));
+            unknowns[unknownOffset] = std::move(readBytes(64));
 
             auto frameCount = readUInt32();
             std::vector<TextureRegion*> frames;
@@ -221,7 +224,7 @@ namespace unx {
                 frames.push_back(frameTextureRegion);
             }
 
-            sprites.emplace_back(name, std::move(frames), std::move(unknowns));
+            sprites.emplace_back(name, width, height, std::move(frames), std::move(unknowns));
         }
 
         unx.sprites = std::move(sprites);
