@@ -4,35 +4,37 @@ svg.railroad-diagram {
 
 svg.railroad-diagram path {
     stroke-width: 2;
-    stroke: #000000;
+    stroke: rgba(0, 0, 0, 0.64);
     fill: rgba(0, 0, 0, 0);
 }
 
 svg.railroad-diagram text {
-    font-weight: bold;
-    font-size: 14px;
     font-family: "Fira Code", "Fira Mono", monospace;
+    font-size: 14px;
     text-anchor: middle;
+    fill: rgba(0, 0, 0, 0.87);
+}
+
+svg.railroad-diagram .non-terminal text,
+svg.railroad-diagram .terminal text {
+    fill: rgba(255, 255, 255, 255);
 }
 
 svg.railroad-diagram text.label {
-    text-anchor: start;
+    fill: rgba(0, 0, 0, 0.87);
 }
 
 svg.railroad-diagram text.comment {
+    fill: rgba(0, 0, 0, 0.87);
     font-size: 12px;
-    font-family: "Fira Code", "Fira Mono", monospace;
-    text-anchor: middle;
 }
 
 svg.railroad-diagram rect {
-    stroke-width: 2;
-    stroke: #000000;
-    fill: #eeeeee;
+    stroke-width: 0;
+    stroke: rgba(0, 0, 0, 0);
+    fill: rgb(30, 136, 229);
 }
 
 svg.railroad-diagram rect.group-box {
-    stroke: #808080;
-    stroke-dasharray: 10 5;
-    fill: none;
+    fill: rgb(21, 95, 160, 0.14);
 }

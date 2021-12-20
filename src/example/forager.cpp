@@ -40,6 +40,8 @@ int main() {
     }
 
     for (auto& sprite : unx.sprites) {
-        std::cout << sprite.name->value << " " << sprite.frames.size() << std::endl;
+        std::cout << sprite.name->value << "\n\tsize.width: " << sprite.size.width
+                  << "\n\tsize.height: " << sprite.size.height << "\n\torigin.x: " << sprite.origin.x
+                  << "\n\torigin.y: " << sprite.origin.y << "\n\tframeCount: " << sprite.frames.size() << std::endl;
     }
 }

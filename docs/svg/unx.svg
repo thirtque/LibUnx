@@ -1,5 +1,5 @@
-<svg class="railroad-diagram" height="341" viewBox="0 0 772.5 341" width="772.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g transform="translate(.5 .5)">
+<svg class="railroad-diagram" height="398" viewBox="0 0 712 398" width="712" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g>
 <style>/* <![CDATA[ */
 svg.railroad-diagram {
     background-color: rgba(0, 0, 0, 0);
@@ -7,67 +7,77 @@ svg.railroad-diagram {
 
 svg.railroad-diagram path {
     stroke-width: 2;
-    stroke: #000000;
+    stroke: rgba(0, 0, 0, 0.64);
     fill: rgba(0, 0, 0, 0);
 }
 
 svg.railroad-diagram text {
-    font-weight: bold;
-    font-size: 14px;
     font-family: "Fira Code", "Fira Mono", monospace;
+    font-size: 14px;
     text-anchor: middle;
+    fill: rgba(0, 0, 0, 0.87);
+}
+
+svg.railroad-diagram .non-terminal text,
+svg.railroad-diagram .terminal text {
+    fill: rgba(255, 255, 255, 255);
 }
 
 svg.railroad-diagram text.label {
-    text-anchor: start;
+    fill: rgba(0, 0, 0, 0.87);
 }
 
 svg.railroad-diagram text.comment {
+    fill: rgba(0, 0, 0, 0.87);
     font-size: 12px;
-    font-family: "Fira Code", "Fira Mono", monospace;
-    text-anchor: middle;
 }
 
 svg.railroad-diagram rect {
-    stroke-width: 2;
-    stroke: #000000;
-    fill: #eeeeee;
+    stroke-width: 0;
+    stroke: rgba(0, 0, 0, 0);
+    fill: rgb(30, 136, 229);
 }
 
 svg.railroad-diagram rect.group-box {
-    stroke: #808080;
-    stroke-dasharray: 10 5;
-    fill: none;
+    fill: rgb(21, 95, 160, 0.14);
 }
-
 /* ]]> */
 </style><g>
-<path d="M20 89v20m10 -20v20m-10 -10h35.5"></path><text style="text-anchor:start" x="20" y="84">Unx</text></g><path d="M55.5 99h10"></path><g>
-<path d="M65.5 99h0.0"></path><path d="M239.0 139h0.0"></path><rect class="group-box" height="78" rx="10" ry="10" width="173.5" x="65.5" y="80"></rect><g>
-<path d="M65.5 99h10.0"></path><path d="M75.5 99h10"></path><g class="terminal ">
-<path d="M85.5 99h39.75"></path><path d="M179.25 99h39.75"></path><rect height="22" rx="10" ry="10" width="54.0" x="125.25" y="88"></rect><text x="152.25" y="103">FORM</text></g><path d="M219.0 99a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-133.5a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g class="non-terminal ">
-<path d="M85.5 139h10.0"></path><path d="M209.0 139h10.0"></path><rect height="22" width="113.5" x="95.5" y="128"></rect><text x="152.25" y="143">uint32 size</text></g><path d="M219.0 139h10"></path><path d="M229.0 139h10.0"></path></g><g class="non-terminal ">
-<path d="M65.5 72h0.0"></path><path d="M173.5 72h0.0"></path><text class="comment" x="119.5" y="77">byte header&#91;8&#93;</text></g></g><path d="M239.0 139h10"></path><path d="M249.0 139h10"></path><g>
-<path d="M259.0 139h0.0"></path><path d="M722.5 232h0.0"></path><path d="M259.0 139h10"></path><g>
-<path d="M269.0 139h0.0"></path><path d="M712.5 232h0.0"></path><rect class="group-box" height="277" rx="10" ry="10" width="443.5" x="269.0" y="36"></rect><g>
-<path d="M269.0 139h10.0"></path><path d="M702.5 232h10.0"></path><g>
-<path d="M279.0 139h0.0"></path><path d="M452.5 232h0.0"></path><rect class="group-box" height="191" rx="10" ry="10" width="173.5" x="279.0" y="60"></rect><g>
-<path d="M279.0 139h10.0"></path><path d="M289.0 139h10"></path><g>
-<path d="M299.0 139h19.75"></path><path d="M412.75 139h19.75"></path><path d="M318.75 139a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path><g class="terminal ">
-<path d="M338.75 109h0.0"></path><path d="M392.75 109h0.0"></path><rect height="22" rx="10" ry="10" width="54.0" x="338.75" y="98"></rect><text x="365.75" y="113">TEXT</text></g><path d="M392.75 109a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path><path d="M318.75 139a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"></path><g class="terminal ">
-<path d="M338.75 79h0.0"></path><path d="M392.75 79h0.0"></path><rect height="22" rx="10" ry="10" width="54.0" x="338.75" y="68"></rect><text x="365.75" y="83">STRG</text></g><path d="M392.75 79a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"></path><path d="M318.75 139h20"></path><g class="terminal ">
-<path d="M338.75 139h0.0"></path><path d="M392.75 139h0.0"></path><rect height="22" rx="10" ry="10" width="54.0" x="338.75" y="128"></rect><text x="365.75" y="143">TPAG</text></g><path d="M392.75 139h20"></path><path d="M318.75 139a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path><g class="terminal ">
-<path d="M338.75 169h0.0"></path><path d="M392.75 169h0.0"></path><rect height="22" rx="10" ry="10" width="54.0" x="338.75" y="158"></rect><text x="365.75" y="173">SPRT</text></g><path d="M392.75 169a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path><path d="M318.75 139a10 10 0 0 1 10 10v37a10 10 0 0 0 10 10"></path><g class="non-terminal ">
-<path d="M338.75 196h11.5"></path><path d="M381.25 196h11.5"></path><text class="comment" x="365.75" y="201">...</text></g><path d="M392.75 196a10 10 0 0 0 10 -10v-37a10 10 0 0 1 10 -10"></path></g><path d="M432.5 139a10 10 0 0 1 10 10v53a10 10 0 0 1 -10 10h-133.5a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g class="non-terminal ">
-<path d="M299.0 232h10.0"></path><path d="M422.5 232h10.0"></path><rect height="22" width="113.5" x="309.0" y="221"></rect><text x="365.75" y="236">uint32 size</text></g><path d="M432.5 232h10"></path><path d="M442.5 232h10.0"></path></g><g class="non-terminal ">
-<path d="M279.0 52h0.0"></path><path d="M373.0 52h0.0"></path><text class="comment" x="326.0" y="57">byte info&#91;8&#93;</text></g></g><path d="M452.5 232h10"></path><path d="M462.5 232h10"></path><g>
-<path d="M472.5 232h0.0"></path><path d="M702.5 232h0.0"></path><rect class="group-box" height="152" rx="10" ry="10" width="230.0" x="472.5" y="153"></rect><g>
-<path d="M472.5 232h0.0"></path><path d="M702.5 232h0.0"></path><path d="M472.5 232a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path><g class="non-terminal ">
-<path d="M492.5 202h25.5"></path><path d="M657.0 202h25.5"></path><rect height="22" width="139.0" x="518.0" y="191"></rect><text x="587.5" y="206">TextureSection</text></g><path d="M682.5 202a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path><path d="M472.5 232a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"></path><g class="non-terminal ">
-<path d="M492.5 172h29.75"></path><path d="M652.75 172h29.75"></path><rect height="22" width="130.5" x="522.25" y="161"></rect><text x="587.5" y="176">StringSection</text></g><path d="M682.5 172a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"></path><path d="M472.5 232h20"></path><g class="non-terminal ">
-<path d="M492.5 232h0.0"></path><path d="M682.5 232h0.0"></path><rect height="22" width="190.0" x="492.5" y="221"></rect><text x="587.5" y="236">TextureRegionSection</text></g><path d="M682.5 232h20"></path><path d="M472.5 232a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path><g class="non-terminal ">
-<path d="M492.5 262h29.75"></path><path d="M652.75 262h29.75"></path><rect height="22" width="130.5" x="522.25" y="251"></rect><text x="587.5" y="266">SpriteSection</text></g><path d="M682.5 262a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path><path d="M472.5 232a10 10 0 0 1 10 10v37a10 10 0 0 0 10 10"></path><g class="non-terminal ">
-<path d="M492.5 289h79.5"></path><path d="M603.0 289h79.5"></path><text class="comment" x="587.5" y="294">...</text></g><path d="M682.5 289a10 10 0 0 0 10 -10v-37a10 10 0 0 1 10 -10"></path></g><g class="non-terminal ">
-<path d="M472.5 145h0.0"></path><path d="M622.5 145h0.0"></path><text class="comment" x="547.5" y="150">byte data&#91;info.size&#93;</text></g></g></g><g class="non-terminal ">
-<path d="M269.0 28h0.0"></path><path d="M524.0 28h0.0"></path><text class="comment" x="396.5" y="33">byte section&#91;8 + section.info.size&#93;</text></g></g><path d="M712.5 232h10"></path><path d="M269.0 139a10 10 0 0 0 -10 10v162a10 10 0 0 0 10 10"></path><g>
-<path d="M269.0 321h443.5"></path></g><path d="M712.5 321a10 10 0 0 0 10 -10v-69a10 10 0 0 0 -10 -10"></path></g><path d="M722.5 232h10"></path><path d="M 732.5 232 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
+<path d="M8 41v20m10 -20v20m-10 -10h37"></path><text style="text-anchor:start" x="8" y="36">Unx</text></g><path d="M45 51h10"></path><g>
+<path d="M55 51h0"></path><path d="M55 51h8"></path><g>
+<path d="M63 51h0"></path><path d="M288 51h378"></path><rect class="group-box" height="54" rx="8" ry="8" width="225" x="63" y="24"></rect><g>
+<path d="M63 51h0"></path><path d="M268 51h20"></path><g>
+<path d="M63 51h0"></path></g><path d="M63 51h10"></path><g>
+<path d="M73 51h0"></path><path d="M268 51h0"></path><g class="terminal ">
+<path d="M73 51h0"></path><path d="M129 51h0"></path><rect height="22" rx="10" ry="10" width="56" x="73" y="40"></rect><text x="101.0" y="55">FORM</text></g><path d="M129 51h10"></path><path d="M139 51h10"></path><g class="non-terminal ">
+<path d="M149 51h0"></path><path d="M268 51h0"></path><rect height="22" width="119" x="149" y="40"></rect><text x="208.5" y="55">uint32 size</text></g></g></g><g class="non-terminal ">
+<path d="M63 16h0"></path><path d="M185 16h0"></path><text class="comment" x="124.0" y="21">byte header&#91;8&#93;</text></g></g><path d="M666 51a8 8 0 0 1 8 8v27a8 8 0 0 1 -8 8h-603a8 8 0 0 0 -8 8v151a8 8 0 0 0 8 8"></path><g>
+<path d="M63 261h0"></path><path d="M646 261h20"></path><path d="M63 261h8"></path><g>
+<path d="M71 261h0"></path><path d="M638 261h0"></path><rect class="group-box" height="248" rx="8" ry="8" width="567" x="71" y="126"></rect><g>
+<path d="M71 261h0"></path><path d="M618 261h20"></path><g>
+<path d="M71 261h0"></path></g><path d="M71 261h10"></path><g>
+<path d="M81 261h0"></path><path d="M618 261h0"></path><g>
+<path d="M81 261h0"></path><path d="M346 261h0"></path><rect class="group-box" height="200" rx="8" ry="8" width="265" x="81" y="158"></rect><g>
+<path d="M81 261h0"></path><path d="M326 261h20"></path><g>
+<path d="M81 261h0"></path></g><path d="M81 261h10"></path><g>
+<path d="M91 261h0"></path><path d="M326 261h0"></path><g>
+<path d="M91 261h0"></path><path d="M197 261h0"></path><path d="M91 261a8 8 0 0 0 8 -8v-22a8 8 0 0 1 8 -8"></path><g class="terminal ">
+<path d="M107 223h0"></path><path d="M181 223h0"></path><rect height="22" rx="10" ry="10" width="74" x="107" y="212"></rect><text x="144.0" y="227">"TEXT"</text></g><path d="M181 223a8 8 0 0 1 8 8v22a8 8 0 0 0 8 8"></path><path d="M91 261a8 8 0 0 0 8 -8v-60a8 8 0 0 1 8 -8"></path><g class="terminal ">
+<path d="M107 185h0"></path><path d="M181 185h0"></path><rect height="22" rx="10" ry="10" width="74" x="107" y="174"></rect><text x="144.0" y="189">"STRG"</text></g><path d="M181 185a8 8 0 0 1 8 8v60a8 8 0 0 0 8 8"></path><path d="M91 261h16"></path><g class="terminal ">
+<path d="M107 261h0"></path><path d="M181 261h0"></path><rect height="22" rx="10" ry="10" width="74" x="107" y="250"></rect><text x="144.0" y="265">"TPAG"</text></g><path d="M181 261h16"></path><path d="M91 261a8 8 0 0 1 8 8v22a8 8 0 0 0 8 8"></path><g class="terminal ">
+<path d="M107 299h0"></path><path d="M181 299h0"></path><rect height="22" rx="10" ry="10" width="74" x="107" y="288"></rect><text x="144.0" y="303">"SPRT"</text></g><path d="M181 299a8 8 0 0 0 8 -8v-22a8 8 0 0 1 8 -8"></path><path d="M91 261a8 8 0 0 1 8 8v57a8 8 0 0 0 8 8"></path><g class="non-terminal ">
+<path d="M107 334h0"></path><path d="M141 334h40"></path><text class="comment" x="124.0" y="339">...</text></g><path d="M181 334a8 8 0 0 0 8 -8v-57a8 8 0 0 1 8 -8"></path></g><path d="M197 261h10"></path><g class="non-terminal ">
+<path d="M207 261h0"></path><path d="M326 261h0"></path><rect height="22" width="119" x="207" y="250"></rect><text x="266.5" y="265">uint32 size</text></g></g></g><g class="non-terminal ">
+<path d="M81 150h0"></path><path d="M187 150h0"></path><text class="comment" x="134.0" y="155">byte info&#91;8&#93;</text></g></g><path d="M346 261h10"></path><path d="M356 261h10"></path><g>
+<path d="M366 261h0"></path><path d="M618 261h0"></path><rect class="group-box" height="200" rx="8" ry="8" width="252" x="366" y="158"></rect><g>
+<path d="M366 261h0"></path><path d="M598 261h20"></path><g>
+<path d="M366 261h0"></path></g><g>
+<path d="M366 261h0"></path><path d="M598 261h0"></path><path d="M366 261a8 8 0 0 0 8 -8v-22a8 8 0 0 1 8 -8"></path><g class="non-terminal ">
+<path d="M382 223h0"></path><path d="M528 223h54"></path><rect height="22" width="146" x="382" y="212"></rect><text x="455.0" y="227">TextureSection</text></g><path d="M582 223a8 8 0 0 1 8 8v22a8 8 0 0 0 8 8"></path><path d="M366 261a8 8 0 0 0 8 -8v-60a8 8 0 0 1 8 -8"></path><g class="non-terminal ">
+<path d="M382 185h0"></path><path d="M519 185h63"></path><rect height="22" width="137" x="382" y="174"></rect><text x="450.5" y="189">StringSection</text></g><path d="M582 185a8 8 0 0 1 8 8v60a8 8 0 0 0 8 8"></path><path d="M366 261h16"></path><g class="non-terminal ">
+<path d="M382 261h0"></path><path d="M582 261h0"></path><rect height="22" width="200" x="382" y="250"></rect><text x="482.0" y="265">TextureRegionSection</text></g><path d="M582 261h16"></path><path d="M366 261a8 8 0 0 1 8 8v22a8 8 0 0 0 8 8"></path><g class="non-terminal ">
+<path d="M382 299h0"></path><path d="M519 299h63"></path><rect height="22" width="137" x="382" y="288"></rect><text x="450.5" y="303">SpriteSection</text></g><path d="M582 299a8 8 0 0 0 8 -8v-22a8 8 0 0 1 8 -8"></path><path d="M366 261a8 8 0 0 1 8 8v57a8 8 0 0 0 8 8"></path><g class="non-terminal ">
+<path d="M382 334h0"></path><path d="M416 334h166"></path><text class="comment" x="399.0" y="339">...</text></g><path d="M582 334a8 8 0 0 0 8 -8v-57a8 8 0 0 1 8 -8"></path></g></g><g class="non-terminal ">
+<path d="M366 150h0"></path><path d="M536 150h0"></path><text class="comment" x="451.0" y="155">byte data&#91;info.size&#93;</text></g></g></g></g><g class="non-terminal ">
+<path d="M71 118h0"></path><path d="M361 118h0"></path><text class="comment" x="216.0" y="123">byte section&#91;8 + section.info.size&#93;</text></g></g><path d="M638 261h8"></path><path d="M71 261a8 8 0 0 0 -8 8v113a8 8 0 0 0 8 8"></path><g>
+<path d="M71 390h567"></path></g><path d="M638 390a8 8 0 0 0 8 -8v-113a8 8 0 0 0 -8 -8"></path></g><path d="M666 261h8"></path><path d="M674 261h0"></path></g><path d="M674 261h10"></path><path d="M 684 261 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

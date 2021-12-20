@@ -202,9 +202,16 @@ namespace unx {
             auto width = readUInt32();
             auto height = readUInt32();
 
-            // Skip 64 bytes of unknown data
+            // Skip 36 bytes of unknown data
             auto unknownOffset = getPosition() - position;
-            unknowns[unknownOffset] = std::move(readBytes(64));
+            unknowns[unknownOffset] = std::move(readBytes(36));
+
+            auto originX = readUInt32();
+            auto originY = readUInt32();
+
+            // Skip 20 bytes of unknown data
+            unknownOffset = getPosition() - position;
+            unknowns[unknownOffset] = std::move(readBytes(20));
 
             auto frameCount = readUInt32();
             std::vector<TextureRegion*> frames;
@@ -224,7 +231,7 @@ namespace unx {
                 frames.push_back(frameTextureRegion);
             }
 
-            sprites.emplace_back(name, width, height, std::move(frames), std::move(unknowns));
+            sprites.emplace_back(name, Size(width, height), Point(originX, originY), std::move(frames), std::move(unknowns));
         }
 
         unx.sprites = std::move(sprites);

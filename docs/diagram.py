@@ -1,75 +1,91 @@
 # Uses https://github.com/tabatkins/railroad-diagrams to generate SVG diagrams of the Unx file format
 
-from railroad import NonTerminal, Diagram as DefaultDiagram, Sequence, Group, Terminal, OneOrMore, Comment, Choice, \
-    Stack, Start
+from railroad import Stack, Sequence, Group as _Group, Skip, Diagram, Start, Terminal, NonTerminal, OneOrMore, Choice, \
+    Comment
+
+import railroad
+
+railroad.VS = 16
+railroad.AR = 8
+railroad.STROKE_ODD_PIXEL_LENGTH = False
+railroad.INTERNAL_ALIGNMENT = 'left'
+railroad.CHAR_WIDTH = 9
+railroad.COMMENT_CHAR_WIDTH = 8
 
 cssFile = open("style.css", "r")
 css = cssFile.read()
 cssFile.close()
 
 
-def Diagram(path, *items, **kwargs):
+def DiagramWithCssToSvg(path, *items, **kwargs):
     kwargs["css"] = css
+    kwargs["INTERNAL_ALIGNMENT"] = "left"
 
-    diagram = DefaultDiagram(*items, **kwargs)
+    diagram = Diagram(*items, **kwargs).format(8)
 
-    svg = open("svg/" + path, "w")
-    diagram.writeSvg(svg.write)
-    svg.close()
+    svgFile = open("svg/" + path, "w")
+    diagram.writeSvg(svgFile.write)
+    svgFile.close()
+
+
+def Group(item, label):
+    return _Group(Sequence(Skip(), item), label)
 
 
 if __name__ == '__main__':
-    Diagram(
+    DiagramWithCssToSvg(
         "unx.svg",
         Start("simple", "Unx"),
-        Group(
-            Stack(
-                Terminal("FORM"),
-                NonTerminal("uint32 size"),
-            ),
-            "byte header[8]"
-        ),
-        OneOrMore(
+        Stack(
             Group(
                 Sequence(
-                    Group(
-                        Stack(
-                            Choice(2, "STRG", "TEXT", "TPAG", "SPRT", Comment("...")),
-                            NonTerminal("uint32 size"),
-                        ),
-                        "byte info[8]",
-                    ),
-                    Group(
-                        Choice(
-                            2,
-                            NonTerminal("StringSection"),
-                            NonTerminal("TextureSection"),
-                            NonTerminal("TextureRegionSection"),
-                            NonTerminal("SpriteSection"),
-                            Comment("...")
-                        ),
-                        "byte data[info.size]"
-                    )
+                    Terminal("FORM"),
+                    NonTerminal("uint32 size"),
                 ),
-                "byte section[8 + section.info.size]"
+                "byte header[8]"
+            ),
+            OneOrMore(
+                Group(
+                    Sequence(
+                        Group(
+                            Sequence(
+                                Choice(2, "\"STRG\"", "\"TEXT\"", "\"TPAG\"", "\"SPRT\"", Comment("...")),
+                                NonTerminal("uint32 size"),
+                            ),
+                            "byte info[8]",
+                        ),
+                        Group(
+                            Choice(
+                                2,
+                                NonTerminal("StringSection"),
+                                NonTerminal("TextureSection"),
+                                NonTerminal("TextureRegionSection"),
+                                NonTerminal("SpriteSection"),
+                                Comment("...")
+                            ),
+                            "byte data[info.size]"
+                        )
+                    ),
+                    "byte section[8 + section.info.size]"
+                )
             )
         )
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "string-section.svg",
         Start("simple", "StringSection"),
         Group(
-            Sequence(
+            Stack(
                 Group(
-                    Stack(
-                        Terminal("STRG"),
+                    Sequence(
+                        Terminal("\"STRG\""),
                         NonTerminal("uint32 size"),
                     ),
                     "byte info[8]"
                 ),
                 Group(
-                    Stack(
+                    Sequence(
                         NonTerminal("uint32 number"),
                         NonTerminal("String* (uint32) strings[number]"),
                     ),
@@ -80,33 +96,33 @@ if __name__ == '__main__':
         )
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "string.svg",
         Start("simple", "String"),
         Group(
             Sequence(
                 NonTerminal("uint32 length"),
                 NonTerminal("char value[length]"),
-                Terminal("\\0"),
+                Terminal("\"\\0\""),
             ),
             "byte string[8 + string.length]"
         ),
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "texture-section.svg",
         Start("simple", "TextureSection"),
         Group(
-            Sequence(
+            Stack(
                 Group(
-                    Stack(
-                        Terminal("TXTR"),
+                    Sequence(
+                        Terminal("\"TXTR\""),
                         NonTerminal("uint32 size"),
                     ),
                     "byte info[8]"
                 ),
                 Group(
-                    Stack(
+                    Sequence(
                         NonTerminal("uint32 number"),
                         NonTerminal("Texture* (uint32) textures[number]"),
                     ),
@@ -118,7 +134,7 @@ if __name__ == '__main__':
 
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "texture.svg",
         Start("simple", "Texture"),
         Group(
@@ -130,7 +146,7 @@ if __name__ == '__main__':
         ),
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "texture-data.svg",
         Start("simple", "TextureData"),
         Group(
@@ -140,14 +156,14 @@ if __name__ == '__main__':
 
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "texture-region-section.svg",
         Start("simple", "TextureRegionSection"),
         Group(
-            Sequence(
+            Stack(
                 Group(
-                    Stack(
-                        Terminal("TPAG"),
+                    Sequence(
+                        Terminal("\"TPAG\""),
                         NonTerminal("uint32 size"),
                     ),
                     "byte info[8]"
@@ -164,22 +180,31 @@ if __name__ == '__main__':
         )
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "texture-region.svg",
         Start("simple", "TextureRegion"),
         Group(
-            Sequence(
-                Stack(
-                    NonTerminal("uint16 offsetX"),
-                    NonTerminal("uint16 offsetY"),
+            Stack(
+                Group(
+                    Sequence(
+                        NonTerminal("uint16 x"),
+                        NonTerminal("uint16 y"),
+                    ),
+                    "byte position[4]"
                 ),
-                Stack(
-                    NonTerminal("uint16 width"),
-                    NonTerminal("uint16 height"),
+                Group(
+                    Sequence(
+                        NonTerminal("uint16 width"),
+                        NonTerminal("uint16 height"),
+                    ),
+                    "byte size[4]"
                 ),
-                Stack(
-                    NonTerminal("uint16 originX"),
-                    NonTerminal("uint16 originY"),
+                Group(
+                    Sequence(
+                        NonTerminal("uint16 x"),
+                        NonTerminal("uint16 y"),
+                    ),
+                    "byte padding[4]"
                 ),
                 NonTerminal("byte unknown[8]"),
                 NonTerminal("uint16 textureIndex"),
@@ -188,20 +213,20 @@ if __name__ == '__main__':
         ),
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "sprite-section.svg",
         Start("simple", "SpriteSection"),
         Group(
-            Sequence(
+            Stack(
                 Group(
-                    Stack(
-                        Terminal("SPRT"),
+                    Sequence(
+                        Terminal("\"SPRT\""),
                         NonTerminal("uint32 size"),
                     ),
                     "byte info[8]"
                 ),
                 Group(
-                    Stack(
+                    Sequence(
                         NonTerminal("uint32 number"),
                         NonTerminal("Sprite* (uint32) sprites[number]"),
                     ),
@@ -212,23 +237,37 @@ if __name__ == '__main__':
         )
     )
 
-    Diagram(
+    DiagramWithCssToSvg(
         "sprite.svg",
         Start("simple", "Sprite"),
         Group(
-            Sequence(
+            Stack(
                 NonTerminal("String.value* (uint32) name"),
-                Stack(
-                    NonTerminal("uint32 width"),
-                    NonTerminal("uint32 height")
+                Group(
+                    Sequence(
+                        NonTerminal("uint32 width"),
+                        NonTerminal("uint32 height")
+                    ),
+                    "byte size[8]"
                 ),
-                NonTerminal("byte unknown[64]"),
-                Stack(
-                    NonTerminal("uint32 frameCount"),
-                    NonTerminal("TextureRegion* (uint32) frames[frameCount]")
+                NonTerminal("byte unknown[36]"),
+                Group(
+                    Sequence(
+                        NonTerminal("uint32 x"),
+                        NonTerminal("uint32 y")
+                    ),
+                    "byte origin[8]"
+                ),
+                NonTerminal("byte unknown[20]"),
+                Group(
+                    Stack(
+                        NonTerminal("uint32 frameCount"),
+                        NonTerminal("TextureRegion* (uint32) frames[frameCount]")
+                    ),
+                    "byte frames[4 + 4 * frameCount]"
                 ),
                 NonTerminal("byte unknown[?]"),
             ),
-            "byte sprite[76 + 4 * frameCount + ?]"
-        ),
+            "byte sprite[80 + 4 * frameCount + ?]"
+        )
     )
