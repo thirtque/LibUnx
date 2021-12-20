@@ -87,7 +87,8 @@ namespace unx {
             unknown_map unknowns;
 
             // Skip 8 bytes of unknown data
-            unknowns[getPosition() - position] = std::move(readBytes(8));
+            auto unknownsOffset = getPosition() - position;
+            unknowns[unknownsOffset] = std::move(readBytes(8));
 
             auto dataPosition = readUInt32();
 
@@ -154,7 +155,8 @@ namespace unx {
             auto originY = readUInt16();
 
             // Skip 8 bytes of unknown data
-            unknowns[getPosition() - position] = std::move(readBytes(8));
+            auto unknownsOffset = getPosition() - position;
+            unknowns[unknownsOffset] = std::move(readBytes(8));
 
             auto textureIndex = readUInt16();
 
@@ -198,7 +200,8 @@ namespace unx {
             }
 
             // Skip 72 bytes of unknown data
-            unknowns[getPosition() - position] = std::move(readBytes(72));
+            auto unknownOffset = getPosition() - position;
+            unknowns[unknownOffset] = std::move(readBytes(72));
 
             auto frameCount = readUInt32();
             std::vector<TextureRegion*> frames;
