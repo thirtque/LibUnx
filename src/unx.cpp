@@ -11,6 +11,13 @@ namespace unx {
         return stream.tellg();
     }
 
+    std::vector<std::uint8_t> Reader::readBytes(std::uint32_t length) {
+        std::vector<std::uint8_t> value(length);
+        stream.read(reinterpret_cast<char*>(value.data()), length);
+
+        return value;
+    }
+
     std::uint16_t Reader::readUInt16() {
         std::uint16_t value{};
         stream.read(reinterpret_cast<char*>(&value), 2);
@@ -77,11 +84,14 @@ namespace unx {
         for (auto& position : positions) {
             setPosition(position);
 
-            auto unknown1 = readUInt32();
-            auto unknown2 = readUInt32();
+            unknown_map unknowns;
+
+            // Skip 8 bytes of unknown data
+            unknowns[getPosition() - position] = std::move(readBytes(8));
+
             auto dataPosition = readUInt32();
 
-            textures.emplace_back(0, dataPosition);
+            textures.emplace_back(0, dataPosition, std::move(unknowns));
         }
         for (auto i = 0; i < number - 1; ++i) {
             textures[i].size = textures[i + 1].position - textures[i].position;
@@ -134,20 +144,27 @@ namespace unx {
         for (auto& position : positions) {
             setPosition(position);
 
+            unknown_map unknowns;
+
             auto offsetX = readUInt16();
             auto offsetY = readUInt16();
             auto width = readUInt16();
             auto height = readUInt16();
             auto originX = readUInt16();
             auto originY = readUInt16();
-            auto unknown1 = readUInt16(); // ~width
-            auto unknown2 = readUInt16(); // ~height
-            auto unknown3 = readUInt16(); // ~width
-            auto unknown4 = readUInt16(); // ~height
+
+            // Skip 8 bytes of unknown data
+            unknowns[getPosition() - position] = std::move(readBytes(8));
+
             auto textureIndex = readUInt16();
 
-            textureRegions.emplace_back(
-                position, Point(offsetX, offsetY), Size(width, height), Point(originX, originY), &unx.textures[textureIndex]);
+            textureRegions.emplace_back(position,
+                Point(offsetX, offsetY),
+                Size(width, height),
+                Point(originX, originY),
+                textureIndex,
+                &unx.textures[textureIndex],
+                std::move(unknowns));
         }
 
         unx.textureRegions = std::move(textureRegions);
@@ -166,6 +183,8 @@ namespace unx {
         for (auto& position : positions) {
             setPosition(position);
 
+            unknown_map unknowns;
+
             String* name = nullptr;
             auto nameStringPosition = readUInt32() - 4;
             for (auto& string : unx.strings) {
@@ -178,24 +197,8 @@ namespace unx {
                 throw std::runtime_error("Unable to find string for sprite name");
             }
 
-            auto unknown1 = readUInt32();
-            auto unknown2 = readUInt32();
-            auto unknown3 = readUInt32();
-            auto unknown4 = readUInt32();
-            auto unknown5 = readUInt32();
-            auto unknown6 = readUInt32();
-            auto unknown7 = readUInt32();
-            auto unknown8 = readUInt32();
-            auto unknown9 = readUInt32();
-            auto unknown10 = readUInt32();
-            auto unknown11 = readUInt32();
-            auto unknown12 = readUInt32();
-            auto unknown13 = readUInt32();
-            auto unknown14 = readUInt32();
-            auto unknown15 = readUInt32();
-            auto unknown16 = readUInt32();
-            auto unknown17 = readUInt32();
-            auto unknown18 = readUInt32();
+            // Skip 76 bytes of unknown data
+            unknowns[getPosition() - position] = std::move(readBytes(76));
 
             auto frameCount = readUInt32();
             std::vector<TextureRegion*> frames;
@@ -215,55 +218,55 @@ namespace unx {
                 frames.push_back(frameTextureRegion);
             }
 
-            sprites.emplace_back(name, std::move(frames));
+            sprites.emplace_back(name, std::move(frames), std::move(unknowns));
         }
 
         unx.sprites = std::move(sprites);
     }
 
-    void Reader::readBackgroundSection(const SectionInfo& section, Unx& unx) {
-        auto number = readUInt32();
-
-        std::vector<std::uint32_t> positions;
-        positions.reserve(number);
-        for (auto i = 0; i < number; i++) {
-            positions.push_back(readUInt32());
-        }
-
-        for (auto& position : positions) {
-            setPosition(position);
-
-            auto unknown1 = readUInt32();
-            auto unknown2 = readUInt32();
-            auto unknown3 = readUInt32();
-            auto unknown4 = readUInt32();
-            auto unknown5 = readUInt32();
-            auto unknown6 = readUInt32();
-            auto unknown7 = readUInt32();
-            auto unknown8 = readUInt32();
-            auto unknown9 = readUInt32();
-            auto unknown10 = readUInt32();
-            auto unknown11 = readUInt32();
-            auto unknown12 = readUInt32();
-            auto unknown13 = readUInt32();
-            auto unknown14 = readUInt32();
-            auto unknown15 = readUInt32();
-            auto unknown16 = readUInt32();
-            auto unknown17 = readUInt32();
-            auto unknown18 = readUInt32();
-            auto unknown19 = readUInt32();
-            auto unknown20 = readUInt32();
-            auto unknown21 = readUInt32();
-            auto unknown22 = readUInt32();
-            auto unknown23 = readUInt32();
-            auto unknown24 = readUInt32();
-            auto unknown25 = readUInt32();
-            auto unknown26 = readUInt32();
-            auto unknown27 = readUInt32();
-            auto unknown28 = readUInt32();
-            auto unknown29 = readUInt32();
-        }
-    }
+    // void Reader::readBackgroundSection(const SectionInfo& section, Unx& unx) {
+    //     auto number = readUInt32();
+    //
+    //     std::vector<std::uint32_t> positions;
+    //     positions.reserve(number);
+    //     for (auto i = 0; i < number; i++) {
+    //         positions.push_back(readUInt32());
+    //     }
+    //
+    //     for (auto& position : positions) {
+    //         setPosition(position);
+    //
+    //         auto unknown1 = readUInt32();
+    //         auto unknown2 = readUInt32();
+    //         auto unknown3 = readUInt32();
+    //         auto unknown4 = readUInt32();
+    //         auto unknown5 = readUInt32();
+    //         auto unknown6 = readUInt32();
+    //         auto unknown7 = readUInt32();
+    //         auto unknown8 = readUInt32();
+    //         auto unknown9 = readUInt32();
+    //         auto unknown10 = readUInt32();
+    //         auto unknown11 = readUInt32();
+    //         auto unknown12 = readUInt32();
+    //         auto unknown13 = readUInt32();
+    //         auto unknown14 = readUInt32();
+    //         auto unknown15 = readUInt32();
+    //         auto unknown16 = readUInt32();
+    //         auto unknown17 = readUInt32();
+    //         auto unknown18 = readUInt32();
+    //         auto unknown19 = readUInt32();
+    //         auto unknown20 = readUInt32();
+    //         auto unknown21 = readUInt32();
+    //         auto unknown22 = readUInt32();
+    //         auto unknown23 = readUInt32();
+    //         auto unknown24 = readUInt32();
+    //         auto unknown25 = readUInt32();
+    //         auto unknown26 = readUInt32();
+    //         auto unknown27 = readUInt32();
+    //         auto unknown28 = readUInt32();
+    //         auto unknown29 = readUInt32();
+    //     }
+    // }
 
     void Reader::readSection(const SectionInfo& sectionInfo, Unx& unx) {
         static const std::map<const std::string, const section_reader> readers = {

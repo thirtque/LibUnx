@@ -10,6 +10,8 @@
 #include <vector>
 
 namespace unx {
+    using unknown_map = std::map<std::uint32_t, std::vector<std::uint8_t>>;
+
     struct Size {
             std::uint32_t width;
             std::uint32_t height;
@@ -66,10 +68,13 @@ namespace unx {
             std::uint32_t position;
             std::vector<uint8_t> data;
 
-            explicit Texture(std::uint32_t size, std::uint32_t position):
+            unknown_map unknowns;
+
+            explicit Texture(std::uint32_t size, std::uint32_t position, unknown_map&& unknowns):
                 size(size),
                 position(position),
-                data(0) {}
+                data(0),
+                unknowns(unknowns) {}
     };
 
     struct TextureRegion {
@@ -77,23 +82,32 @@ namespace unx {
             Point offset;
             Size size;
             Point origin;
+            std::uint32_t textureIndex;
             Texture* texture;
 
-            explicit TextureRegion(std::uint32_t position, Point offset, Size size, Point origin, Texture* texture):
+            unknown_map unknowns;
+
+            explicit TextureRegion(
+                std::uint32_t position, Point offset, Size size, Point origin, std::uint32_t textureIndex, Texture* texture, unknown_map&& unknowns):
                 position(position),
                 offset(offset),
                 size(size),
                 origin(origin),
-                texture(texture) {}
+                textureIndex(textureIndex),
+                texture(texture),
+                unknowns(std::move(unknowns)) {}
     };
 
     struct Sprite {
             String* name;
             std::vector<TextureRegion*> frames;
 
-            explicit Sprite(String* name, std::vector<TextureRegion*>&& frames):
+            unknown_map unknowns;
+
+            explicit Sprite(String* name, std::vector<TextureRegion*>&& frames, unknown_map&& unknowns):
                 name(name),
-                frames(std::move(frames)) {}
+                frames(std::move(frames)),
+                unknowns(std::move(unknowns)) {}
     };
 
     struct Unx {
@@ -124,6 +138,7 @@ namespace unx {
             void setPosition(std::uint32_t position);
             std::uint32_t getPosition();
 
+            std::vector<std::uint8_t> readBytes(std::uint32_t length);
             std::uint16_t readUInt16();
             std::uint32_t readUInt32();
             std::string readString(std::uint32_t length);
