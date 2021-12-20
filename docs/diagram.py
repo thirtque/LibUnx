@@ -218,7 +218,7 @@ if __name__ == '__main__':
         Group(
             Sequence(
                 Sequence(NonTerminal("String.value* (uint32) name")),
-                NonTerminal("byte unknown[76]"),
+                NonTerminal("byte unknown[72]"),
                 Group(
                     OneOrMore(
                         NonTerminal("TextureRegion* (uint32) frame"),
@@ -227,6 +227,6 @@ if __name__ == '__main__':
                 ),
                 NonTerminal("byte unknown[?]"),
             ),
-            "byte sprite[80 + 4 * frameCount + ?]"
+            "byte sprite[76 + 4 * frameCount + ?]"
         ),
     )
